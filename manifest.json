@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Gemini Custom Typography",
+  "version": "1.1",
+  "description": "Customize fonts with local variable font files.",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["https://gemini.google.com/*"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://gemini.google.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["fonts/*"],
+      "matches": ["https://gemini.google.com/*"]
+    }
+  ]
+}
